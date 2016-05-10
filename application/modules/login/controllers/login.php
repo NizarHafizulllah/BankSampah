@@ -19,11 +19,11 @@ class Login extends CI_Controller {
 		redirect("login");
 	}
 	function logout_bj(){
-		$this->session->unset_userdata("bj_login",true);
+		$this->session->unset_userdata("pengepul_login",true);
 		redirect("login");
 	}
 	function logout_user(){
-		$this->session->unset_userdata("user_login",true);
+		$this->session->unset_userdata("nasabah_login",true);
 		redirect("login");
 	}
 	
@@ -66,11 +66,10 @@ function cek_password($password) {
 		 $username = $data['form-username'];
 		 $password = $data['mask'];
 
-		 $this->db->select('p.*,b.nama as birojasa')->from('pengguna p')
-		 ->join('biro_jasa b','p.birojasa_id = b.id','left');
-		 $this->db->where("p.email",$username);
-		 $this->db->where("p.password",$password);
-		 $res = $this->db->get();
+		 
+		 $this->db->where("username",$username);
+		 $this->db->where("password",$password);
+		 $res = $this->db->get('super_admin');
 
 		 if($res->num_rows()==0) {
 
@@ -100,9 +99,9 @@ function cek_password($password) {
 		 	}
 		 	else if ($member['level'] == 2) {
 		 		
-		 		$this->session->set_userdata('bj_login', $member);
-		 		$datalogin = $this->session->userdata("bj_login");
-		 		redirect('biro_jasa');
+		 		$this->session->set_userdata('pengepul_login', $member);
+		 		$datalogin = $this->session->userdata("pengepul_login");
+		 		redirect('pengepul');
 		 	}
 
 		 	else if ($member['level'] == 3) {

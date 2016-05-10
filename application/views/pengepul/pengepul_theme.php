@@ -1,5 +1,5 @@
 <?php 
-$userdata = $this->session->userdata('admin_login');
+$userdata = $this->session->userdata('pengepul_login');
 ?>
 
 <!DOCTYPE html>
@@ -71,9 +71,9 @@ folder instead of downloading all of them to reduce the load. -->
         <!-- Logo -->
 		  <a href="<?php echo site_url('admin'); ?>" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-			<span class="logo-mini"><b>S</b>A</span>
+			<span class="logo-mini"><b>B</b>S</span>
 			<!-- logo for regular state and mobile devices -->
-			<span class="logo-lg"><b>Super </b>Admin</span>
+			<span class="logo-lg"><b>Bank </b>Sampah</span>
 		  </a>
         <!-- Header Navbar: style can be found in header.less -->
 		  <nav class="navbar navbar-static-top" role="navigation">
@@ -94,7 +94,7 @@ folder instead of downloading all of them to reduce the load. -->
 							<p><?php echo $userdata['nama'] ?>
 						  	<small><?php echo $userdata['no_hp'] ?></small>
 								</p>
-								<p><h2 style="color: white;">Admin</h2></p>
+								<p><h2 style="color: white;">Pengepul</h2></p>
 						</li>	
                   <!-- Menu Footer-->
                   <li class="user-footer">

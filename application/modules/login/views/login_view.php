@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Biro Jasa | </title>
+  <title>Bank Sampah | </title>
 
   <!-- Bootstrap core CSS -->
   
@@ -93,7 +93,7 @@
               <div class="clearfix"></div>
               <br />
               <div>
-                <h1></i> Biro Jasa!</h1>
+                <h1></i> Bank Sampah</h1>
 
                 <p>Dikelola oleh TIGA PILAR MAJU MANDIRI hak cipta dilindungi undang undang. </p>
               </div>
@@ -122,7 +122,7 @@
               <div class="clearfix"></div>
               <br />
               <div>
-                <h1></i> Biro Jasa!</h1>
+                <h1> Bank Sampah</h1>
 
                 <p>Dikelola oleh TIGA PILAR MAJU MANDIRI hak cipta dilindungi undang undang. </p>
               </div>

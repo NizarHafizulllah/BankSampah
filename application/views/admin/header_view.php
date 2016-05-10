@@ -92,7 +92,7 @@ folder instead of downloading all of them to reduce the load. -->
 				  	<ul class="dropdown-menu">
 					  <li class="user-header">
 							<p><?php echo $userdata['nama'] ?>
-						  	<small><?php echo $userdata['email'] ?></small>
+						  	<small><?php echo $userdata['no_hp'] ?></small>
 								</p>
 								<p><h2 style="color: white;">Admin</h2></p>
 						</li>	
