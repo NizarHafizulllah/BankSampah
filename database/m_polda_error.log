@@ -1,0 +1,217 @@
+/*
+2016-04-10 14:28:44.339 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (1, 'NAD');
+
+/*
+2016-04-10 14:28:51.753 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (2, 'SUMATERA UTARA');
+
+/*
+2016-04-10 14:28:51.755 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (3, 'SUMATERA BARAT');
+
+/*
+2016-04-10 14:28:51.758 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (4, 'RIAU');
+
+/*
+2016-04-10 14:28:51.761 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (5, 'KALIMANTAN BARAT');
+
+/*
+2016-04-10 14:28:51.764 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (6, 'SUMATERA SELATAN');
+
+/*
+2016-04-10 14:28:51.767 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (7, 'LAMPUNG');
+
+/*
+2016-04-10 14:28:51.770 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (8, 'BENGKULU');
+
+/*
+2016-04-10 14:28:51.772 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (9, 'JAMBI');
+
+/*
+2016-04-10 14:28:51.776 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (10, 'METRO JAYA');
+
+/*
+2016-04-10 14:28:51.779 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (11, 'JAWA BARAT');
+
+/*
+2016-04-10 14:28:51.782 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (12, 'JAWA TENGAH');
+
+/*
+2016-04-10 14:28:51.785 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (13, 'D.I. YOGYAKARTA');
+
+/*
+2016-04-10 14:28:51.788 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (14, 'JAWA TIMUR');
+
+/*
+2016-04-10 14:28:51.790 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (15, 'BALI');
+
+/*
+2016-04-10 14:28:51.793 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (16, 'N.T.B');
+
+/*
+2016-04-10 14:28:51.795 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (17, 'N.T.T');
+
+/*
+2016-04-10 14:28:51.797 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (18, 'KALIMANTAN TIMUR');
+
+/*
+2016-04-10 14:28:51.800 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (19, 'KALIMANTAN SELATAN');
+
+/*
+2016-04-10 14:28:51.804 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (20, 'KALIMANTAN TENGAH');
+
+/*
+2016-04-10 14:28:51.807 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (21, 'SULAWESI SELATAN');
+
+/*
+2016-04-10 14:28:51.810 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (22, 'SULAWESI TENGGARA');
+
+/*
+2016-04-10 14:28:51.812 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (23, 'SULAWESI UTARA');
+
+/*
+2016-04-10 14:28:51.815 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (24, 'SULAWESI TENGAH');
+
+/*
+2016-04-10 14:28:51.819 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (25, 'MALUKU');
+
+/*
+2016-04-10 14:28:51.823 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (26, 'PAPUA');
+
+/*
+2016-04-10 14:28:51.826 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (27, 'BANTEN');
+
+/*
+2016-04-10 14:28:51.829 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (28, 'BANGKA BELITUNG');
+
+/*
+2016-04-10 14:28:51.831 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (29, 'GORONTALO');
+
+/*
+2016-04-10 14:28:51.835 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (30, 'MALUKU UTARA');
+
+/*
+2016-04-10 14:28:51.837 WITA
+No database selected*/
+
+INSERT INTO m_polda(polda_id, polda_nama)
+     VALUES (31, 'KEPULAUAN RIAU');
+
