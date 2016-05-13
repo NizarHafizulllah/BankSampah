@@ -31,7 +31,27 @@
         <input type="text" name="no_hp"  value="<?php echo isset($no_hp)?$no_hp:""; ?>" id="no_hp" class="form-control input-style" placeholder="Nomor HP . . ."  >
       </div>
     </div>
-     
+     <div class="form-group">
+      <label class="col-sm-3 control-label">Kota </label>
+      <div class="col-sm-9">
+       
+        <?php echo form_dropdown("id_kota",$arr_kota,'','id="id_kota" class="form-control input-style"'); ?>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Kecamatan </label>
+      <div class="col-sm-9">
+       
+        <?php echo form_dropdown("id_kecamatan",array(),'','id="id_kecamatan" class="form-control input-style"'); ?>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Desa </label>
+      <div class="col-sm-9">
+       
+        <?php echo form_dropdown("id_desa",array(),'','id="id_desa" class="form-control input-style"'); ?>
+      </div>
+    </div>
     <div class="form-group">
       <label class="col-sm-3 control-label">Alamat</label>
       <div class="col-sm-9">

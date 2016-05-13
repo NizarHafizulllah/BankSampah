@@ -18,6 +18,8 @@
             </div>
             <div class="box-body">
 
+
+<div class="row">
             
 
             <form role="form" action="" id="btn-cari" >
@@ -40,13 +42,13 @@
               </div>
             </div>
             </form>
-            
-
-
+  </div>          
+<div class="row">
+<div class="table-responsive">
 <table width="100%" border="0" id="biro_jasa" class="table table-striped 
              table-bordered table-hover dataTable no-footer" role="grid">
 <thead>
-  <tr  >
+  <tr>
 
 
         
@@ -58,6 +60,8 @@
   
 </thead>
 </table>
+</div>
+</div>
             </div>
             </div>
 

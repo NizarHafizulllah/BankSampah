@@ -18,11 +18,11 @@ class Login extends CI_Controller {
 		$this->session->unset_userdata("admin_login",true);
 		redirect("login");
 	}
-	function logout_bj(){
+	function logout_pengepul(){
 		$this->session->unset_userdata("pengepul_login",true);
 		redirect("login");
 	}
-	function logout_user(){
+	function logout_nasabah(){
 		$this->session->unset_userdata("nasabah_login",true);
 		redirect("login");
 	}
@@ -71,13 +71,7 @@ function cek_password($password) {
 		 $this->db->where("password",$password);
 		 $res = $this->db->get('super_admin');
 
-		 if($res->num_rows()==0) {
-
-		 	redirect('login');
-		 	// $ret = array("error"=>true,"message"=>"Kombinasi Email Dan Password Tidak Dikenali");
-
-		 }
-		 else {
+		 if($res->num_rows()==1) {
 
 		 	$member = $res->row_array();
 		 	// show_array($member);
@@ -104,17 +98,37 @@ function cek_password($password) {
 		 		redirect('pengepul');
 		 	}
 
-		 	else if ($member['level'] == 3) {
-
-		 		$this->session->set_userdata('user_login', $member);
-
-		 		$datalogin = $this->session->userdata("user_login");
-
-		 		redirect('user');
-		 	}
-
 		 	else {
 		 		$ret = array("error"=>true,"message"=>"NOT An Option");
+		 	}
+
+
+
+
+		 	
+
+		 		
+		 	// $ret = array("error"=>true,"message"=>"Kombinasi Email Dan Password Tidak Dikenali");
+
+		 }
+		 else {
+
+		 	$this->db->where("username",$username);
+		 	$this->db->where("password",$password);
+		 	$nasabah = $this->db->get('nasabah');
+
+		 	if ($nasabah->num_rows()==0) {
+		 		redirect('login');
+		 	}else{
+
+		 		$member = $nasabah->row_array();
+		 	
+
+		 		$member['login'] = true;
+
+		 		$this->session->set_userdata('nasabah_login', $member);
+		 		$datalogin = $this->session->userdata("nasabah_login");
+		 		redirect('nasabah');
 		 	}
 
 		 }

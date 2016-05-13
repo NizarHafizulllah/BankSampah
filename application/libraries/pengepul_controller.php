@@ -10,8 +10,6 @@ class pengepul_controller extends CI_Controller {
 		if( $datalogin['login'] == false ) {
 			redirect('login');
 		} 
-
-		
 	}
 
 

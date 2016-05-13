@@ -53,7 +53,33 @@ $('#form_data').bootstrapValidator({
             $('#form_data').data('bootstrapValidator').resetForm(true);
         });
 
+  $("#id_kota").change(function(){
 
+    $.ajax({
+
+            url : '<?php echo site_url("$this->controller/get_kecamatan") ?>',
+            data : { id_kota : $(this).val() },
+            type : 'post', 
+            success : function(result) {
+                $("#id_kecamatan").html(result)
+            }
+      });
+
+    });
+
+   $("#id_kecamatan").change(function(){
+
+    $.ajax({
+
+            url : '<?php echo site_url("$this->controller/get_desa") ?>',
+            data : { id_kecamatan : $(this).val() },
+            type : 'post', 
+            success : function(result) {
+                $("#id_desa").html(result)
+            }
+      });
+
+    });
 
 $("#tombolsubmitsimpan").click(function(){
  console.log('tests');
@@ -128,6 +154,20 @@ $("#tombolsubmitupdate").click(function(){
 
     return false;
 });
+
+  $("#id_polda").change(function(){
+
+    $.ajax({
+
+            url : '<?php echo site_url("$this->controller/get_samsat") ?>',
+            data : { id_polda : $(this).val() },
+            type : 'post', 
+            success : function(result) {
+                $("#id_samsat").html(result)
+            }
+      });
+
+    });
 
 
 

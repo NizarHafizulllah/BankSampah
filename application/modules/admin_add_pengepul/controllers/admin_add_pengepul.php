@@ -47,6 +47,8 @@ function baru(){
 
         $data_array['action'] = 'simpan';
 
+        $data_array['arr_kota'] = $this->cm->arr_dropdown("tiger_kota", "id", "kota", "kota");
+       
         $content = $this->load->view($this->controller."_form_view",$data_array,true);
 
         $this->set_subtitle("Tambah Pengepul");
@@ -122,6 +124,19 @@ else {
 }
 
 
+function get_desa(){
+    $data = $this->input->post();
+
+    $id_kecamatan = $data['id_kecamatan'];
+    $this->db->where("id_kecamatan",$id_kecamatan);
+    $this->db->order_by("desa");
+    $rs = $this->db->get("tiger_desa");
+    foreach($rs->result() as $row ) :
+        echo "<option value=$row->id>$row->desa </option>";
+    endforeach;
+
+
+}
 
 
     function get_data() {
@@ -137,6 +152,9 @@ else {
         
   
         $nama = $_REQUEST['columns'][1]['search']['value'];
+
+
+        
 
 
       //  order[0][column]
@@ -234,15 +252,21 @@ else {
 
 
 
-function cek_passwd2($p1){
-    $p2 = $this->input->post('p2');
- 
-    if($p1 <> $p2) {
-        $this->form_validation->set_message('cek_passwd', ' %s tidak sama');
-         return false;
-    }
-}
 
+
+ function get_kecamatan(){
+    $data = $this->input->post();
+
+    $id_kota = $data['id_kota'];
+    $this->db->where("id_kota",$id_kota);
+    $this->db->order_by("kecamatan");
+    $rs = $this->db->get("tiger_kecamatan");
+    foreach($rs->result() as $row ) :
+        echo "<option value=$row->id>$row->kecamatan </option>";
+    endforeach;
+
+
+}
 
 
 
@@ -308,7 +332,7 @@ else {
 
     	$data = array('id' => $id, );
 
-    	$res = $this->db->delete('pengguna', $data);
+    	$res = $this->db->delete('super_admin', $data);
         if($res){
             $arr = array("error"=>false,"message"=>"DATA BERHASIL DIHAPUS");
         }
@@ -319,26 +343,6 @@ else {
         echo json_encode($arr);
     }
 
-
-
-	// function simpan(){
-	// 	$post = $this->input->post();
-	// 	$password = md5($post['password']);
-	// 	$data = array('nama' => $post['nama'],
-	// 					'email' => $post['email'],
-	// 					'alamat' => $post['alamat'],
-	// 					'password' => $password,
-	// 					'level' => 2);
-	// 	$this->db->insert('sa_birojasa_user', $data); 
-
-	// 	redirect('sa_birojasa_user');
-	// }
-
-
-
-
-
-	
 
 }
 

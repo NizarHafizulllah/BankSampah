@@ -21,7 +21,7 @@ $userdata = $this->session->userdata('pengepul_login');
 	  
 	  <link rel="stylesheet" href="<?php echo base_url('assets/plugins/select2/select2.min.css'); ?>">
         
-       <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrapValidator.min.css">
 
     <!-- AdminLTE Skins. Choose a skin from the css/skins
 folder instead of downloading all of them to reduce the load. -->
@@ -37,11 +37,8 @@ folder instead of downloading all of them to reduce the load. -->
 
 
 
-<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap/bootstrap-dialog.min.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap/bootstrap-dialog.min.css">
 
-
-    
-    <!-- jQuery 2.1.4 -->
     <script src="<?php echo base_url('assets/plugins/jQuery/jQuery-2.1.4.min.js'); ?>"></script>
     <!-- Bootstrap 3.3.5 -->
     <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js'); ?>"></script>
@@ -69,7 +66,7 @@ folder instead of downloading all of them to reduce the load. -->
 
 		<header class="main-header">
         <!-- Logo -->
-		  <a href="<?php echo site_url('admin'); ?>" class="logo">
+		  <a href="<?php echo site_url('pengepul'); ?>" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
 			<span class="logo-mini"><b>B</b>S</span>
 			<!-- logo for regular state and mobile devices -->
@@ -99,10 +96,10 @@ folder instead of downloading all of them to reduce the load. -->
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-left">
-                      <a href="<?php echo site_url('admin_profil'); ?>" class="btn btn-default btn-flat">Profile</a>
+                      <a href="<?php echo site_url('pengepul_profile'); ?>" class="btn btn-default btn-flat">Profile</a>
                     </div>
                     <div class="pull-right">
-                      <a href="<?php echo site_url('login/logout_admin'); ?>" class="btn btn-default btn-flat">Sign out</a>
+                      <a href="<?php echo site_url('login/logout_pengepul'); ?>" class="btn btn-default btn-flat">Sign out</a>
                     </div>
                   </li>
 					  </ul>
@@ -136,7 +133,7 @@ folder instead of downloading all of them to reduce the load. -->
           <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
             <li class="treeview">
-              <a href="<?php echo site_url('admin'); ?>">
+              <a href="<?php echo site_url('pengepul'); ?>">
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span></i>
               </a>
             </li>
@@ -145,8 +142,8 @@ folder instead of downloading all of them to reduce the load. -->
                 <i class="fa fa-edit"></i> <span>Data Master</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="<?php echo site_url('admin_add_pengepul'); ?>"><i class="fa fa-circle-o"></i> Pengepul</a></li>
-                 <li><a href="<?php echo site_url('nasabah'); ?>"><i class="fa fa-circle-o"></i> Nasabah</a></li>
+                <li><a href="<?php echo site_url('pengepul_add_nasabah'); ?>"><i class="fa fa-circle-o"></i> Nasabah</a></li>
+               
               </ul>
             </li>
           </ul>
