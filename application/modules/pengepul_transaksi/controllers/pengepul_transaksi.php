@@ -47,7 +47,15 @@ function baru(){
 
         $data_array['action'] = 'simpan';
 
-        $data_array['arr_kota'] = $this->cm->arr_dropdown("tiger_kota", "id", "kota", "kota");
+        $userdata = $this->session->userdata('pengepul_login');
+        $pengepul = $userdata['id'];
+
+        
+
+        $this->db->where('id_pengepul', $pengepul);
+        $nasabah = $this->db->get('nasabah');
+
+        $data_array['arr_nasabah'] = $this->cm->arr_dropdown("nasabah", "id", "nama", "nama");
        
         $content = $this->load->view($this->controller."_form_view",$data_array,true);
 
