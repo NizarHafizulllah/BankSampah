@@ -59,7 +59,8 @@
             <div class="form-group">
               <label class="col-sm-3 control-label"><?php echo $row->sub_jenis; ?></label>
                 <div class="col-sm-9">
-              <input type="text" name="<?php echo $row->id; ?>"  value="" id="<?php echo $row->id; ?>" class="form-control input-style" placeholder="Berat <?php echo $row->sub_jenis; ?>(Kg)"  >
+              <input type="hidden" name="jenis[<?php echo $row->id; ?>]" value="<?php echo $row->id; ?>">
+              <input type="text" name="berat[<?php echo $row->id; ?>]"  value="" id="<?php echo $row->id; ?>" class="form-control input-style" placeholder="Berat <?php echo $row->sub_jenis; ?>(Kg)"  >
             </div>
           </div>
 

@@ -83,41 +83,21 @@ function simpan(){
 
     $post = $this->input->post();
     
-       
+    foreach($post['jenis'] as $index => $val) {
+
+        if(!empty($post['berat'][$index])) { 
+        $arr['id_pengepul'] = $post['id_pengepul'];
+        $arr['tgl'] = $post['tgl'];
+        $arr['id_nasabah'] = $post['id_nasabah'];
+        $arr['id_sub_jenis'] = $val;
+        $arr['berat'] = $post['berat'][$index];   
+        show_array($arr);
+    }
+
+   }
 
 
-        $this->load->library('form_validation');
-        $this->form_validation->set_rules('nama','Nama Pengguna','required');  
-        $this->form_validation->set_rules('no_hp','Email','callback_cek_email');    
-        // $this->form_validation->set_rules('pelaksana_nip','NIP','required');         
-         
-        $this->form_validation->set_message('required', ' %s Harus diisi ');
-        
-        $this->form_validation->set_error_delimiters('', '<br>');
-
-     
-
-        $post['password'] = md5($post['no_hp']);
-        $post['username'] = $post['no_hp'];
-
-        
-        //show_array($data);
-
-if($this->form_validation->run() == TRUE ) { 
-
-        
-        $res = $this->db->insert('nasabah', $post); 
-        if($res){
-            $arr = array("error"=>false,'message'=>"BERHASIL DISIMPAN");
-        }
-        else {
-             $arr = array("error"=>true,'message'=>"GAGAL  DISIMPAN");
-        }
-}
-else {
-    $arr = array("error"=>true,'message'=>validation_errors());
-}
-        echo json_encode($arr);
+ 
 }
 
 
