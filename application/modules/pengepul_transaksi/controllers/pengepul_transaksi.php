@@ -6,6 +6,7 @@ class pengepul_transaksi extends pengepul_controller{
 
 		$this->controller = get_class($this);
 		$this->load->model('pengepul_transaksi_model','dm');
+        $this->load->helper("tanggal");
         $this->load->model("coremodel","cm");
 		
 		//$this->load->helper("serviceurl");
@@ -82,19 +83,77 @@ function simpan(){
 
 
     $post = $this->input->post();
+
+     $this->load->library('form_validation');
+    $this->form_validation->set_rules('tgl','Tanggal Tidak Boleh Kosong','required');  
+           
+                
+         
+    $this->form_validation->set_message('required', ' %s Harus diisi ');
+        
+    $this->form_validation->set_error_delimiters('', '<br>');
+
+
+ if($this->form_validation->run() == TRUE ) { 
+
+
+
     
     foreach($post['jenis'] as $index => $val) {
 
         if(!empty($post['berat'][$index])) { 
-        $arr['id_pengepul'] = $post['id_pengepul'];
-        $arr['tgl'] = $post['tgl'];
-        $arr['id_nasabah'] = $post['id_nasabah'];
-        $arr['id_sub_jenis'] = $val;
-        $arr['berat'] = $post['berat'][$index];   
-        show_array($arr);
-    }
+        $data['id_pengepul'] = $post['id_pengepul'];
+        $tgl = flipdate($post['tgl']);
+        $data['tgl'] = $tgl;
+        $data['id_nasabah'] = $post['id_nasabah'];
+        $data['id_sub_jenis'] = $val;
+        $data['berat'] = $post['berat'][$index];
 
-   }
+        $this->db->where('id', $data['id_sub_jenis']);
+        $res = $this->db->get('sub_jenis')->row_array();
+
+        // echo $this->db->last_query(); exit();
+
+        $hargakg = $res['harga_kg'];
+        $hargatot = $hargakg * $data['berat'];
+        $data['harga'] = $hargatot;
+        
+
+        $this->db->where('id', $data['id_nasabah']);
+        $res = $this->db->get('nasabah')->row_array();
+
+        // echo $this->db->last_query(); exit();
+
+        $data['saldo_awal'] = $res['saldo'];
+        $data['saldo_akhir'] = $data['saldo_awal'] + $data['harga'];
+        $ubah['saldo'] = $res['saldo'] + $data['harga'];
+        $res = $this->db->insert('transaksi', $data); 
+
+
+        $this->db->where('id', $post['id_nasabah']);
+        $subah = $this->db->update('nasabah', $ubah);
+
+       
+            }
+
+        }
+             
+        if($res){
+                $arr = array("error"=>false,'message'=> 'Data Berhasil Di Simpan' );
+            }
+        else {
+            $arr = array("error"=>true,'message'=>"GAGAL  DISIMPAN");
+            }
+        }
+        else {
+            $arr = array("error"=>true,'message'=>validation_errors());
+        }
+
+
+
+        echo json_encode($arr);
+
+ 
 
 
  
