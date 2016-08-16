@@ -186,8 +186,8 @@ function get_desa(){
         foreach($result as $row) : 
 		// $daft_id = $row['daft_id'];
         $id = $row['id'];
-        $hapus = "<a href ='#' onclick=\"hapus('$id')\" class='btn btn-danger btn-xs'><i class='fa fa-trash'></i>Hapus</a>
-        <a href ='$this->controller/editdata?id=$id' class='btn btn-primary btn-xs'><i class='fa fa-edit'></i>Edit</a>";
+            $hapus = "<a href ='#' onclick=\"hapus('$id')\" class='btn btn-danger btn-xs'><i class='fa fa-trash'></i>Hapus</a>
+            <a href ='$this->controller/editdata?id=$id' class='btn btn-primary btn-xs'><i class='fa fa-edit'></i>Edit</a>";
         	
         	 
         	$arr_data[] = array(
@@ -216,10 +216,12 @@ function get_desa(){
     	 $id = $get['id'];
 
     	 $this->db->where('id',$id);
-    	 $biro_jasa = $this->db->get('pengguna');
+    	 $biro_jasa = $this->db->get('super_admin');
     	 $data = $biro_jasa->row_array();
 
-        $data['arr_birojasa'] = $this->cm->arr_dropdown("biro_jasa", "id", "nama", "nama");
+       $data['arr_kota'] = $this->cm->arr_dropdown("tiger_kota", "id", "kota", "kota");
+       $data['arr_kecamatan'] = $this->cm->arr_dropdown("tiger_kecamatan", "id", "kecamatan", "kecamatan");
+       $data['arr_desa'] = $this->cm->arr_dropdown("tiger_desa", "id", "desa", "desa");
 
 
         $data['action'] = 'update';
@@ -239,12 +241,12 @@ function get_desa(){
     	// 		'hp' => $data->hp,
 
     	// 	);
-		$content = $this->load->view("sa_birojasa_user_form_edit_view",$data,true);
+		$content = $this->load->view("admin_add_pengepul_form_view",$data,true);
 
          // $content = $this->load->view($this->controller."_form_view",$data,true);
 
-		$this->set_subtitle("Edit Biro Jasa");
-		$this->set_title("Edit Biro Jasa");
+		$this->set_subtitle("Edit Pengepul");
+		$this->set_title("Edit Pengepul");
 		$this->set_content($content);
 		$this->cetak();
 

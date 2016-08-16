@@ -28,6 +28,18 @@ class coremodel extends CI_Model {
 
 	}
 
+        function arr_dropdown($vTable, $vINDEX, $vVALUE, $vORDERBY, $vpengepul){
+                $this->db->order_by($vORDERBY);
+                $this->db->where($vpengepul);
+                $res  = $this->db->get($vTable);
+                $ret = array();
+                foreach($res->result_array() as $row) : 
+                        $ret[$row[$vINDEX]] = $row[$vVALUE];
+                endforeach;
+                return $ret;
+
+        }
+
 	function arr_level() {
 		$arr = array(1=>"Level 1","Level 2","Level 3");
 		return $arr;

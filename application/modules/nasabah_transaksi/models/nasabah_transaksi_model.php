@@ -1,16 +1,18 @@
 <?php 
 
-class pengepul_nasabah_model extends CI_Model {
+class nasabah_transaksi_model extends CI_Model {
 
 
-	function pengepul_nasabah_model(){
+	function nasabah_transaksi_model(){
 		parent::__construct();
 	}
 
 
 
 
- function data($param)
+
+
+ function transaksi($param)
 	{		
 
 		// show_array($param);
@@ -21,22 +23,21 @@ class pengepul_nasabah_model extends CI_Model {
 		 
 
 		 $kolom = array(0=>"id",
-							"nama",
-							"nomor_hp",
-							"saldo"							 
+		 					"tgl",
+		 					"nasabah",
+		 					"debit",
+		 					"kredit",
+							"saldo",							 
 		 	);
 
 
-		
-
-		 
-		 $this->db->where("id_pengepul", $pengepul);
+		$this->db->where('id_nasabah', $id_nasabah);
 
 
 		 
 
 		 if(!empty($nama)) {
-		 	$this->db->like("nama",$nama);
+		 	$this->db->like("ns.nama",$nama);
 		 }
 
 		($param['limit'] != null ? $this->db->limit($param['limit']['end'], $param['limit']['start']) : '');
@@ -44,7 +45,7 @@ class pengepul_nasabah_model extends CI_Model {
        
        ($param['sort_by'] != null) ? $this->db->order_by($kolom[$param['sort_by']], $param['sort_direction']) :'';
         
-		$res = $this->db->get('nasabah');
+		$res = $this->db->get('m_transaksi');
 		// echo $this->db->last_query(); exit;
  		return $res;
 	}

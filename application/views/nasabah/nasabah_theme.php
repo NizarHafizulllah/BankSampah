@@ -146,7 +146,7 @@ folder instead of downloading all of them to reduce the load. -->
                 <i class="fa fa-edit"></i> <span>Data Master</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="<?php echo site_url('nasabah'); ?>"><i class="fa fa-circle-o"></i> Transaksi</a></li>
+                <li><a href="<?php echo site_url('nasabah_transaksi'); ?>"><i class="fa fa-circle-o"></i> Transaksi</a></li>
               </ul>
             </li>
           </ul>

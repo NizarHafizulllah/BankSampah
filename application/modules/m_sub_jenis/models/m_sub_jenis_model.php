@@ -1,9 +1,9 @@
 <?php 
 
-class pengepul_nasabah_model extends CI_Model {
+class m_sub_jenis_model extends CI_Model {
 
 
-	function pengepul_nasabah_model(){
+	function m_sub_jenis_model(){
 		parent::__construct();
 	}
 
@@ -21,22 +21,16 @@ class pengepul_nasabah_model extends CI_Model {
 		 
 
 		 $kolom = array(0=>"id",
-							"nama",
-							"nomor_hp",
-							"saldo"							 
+		 					"sub_jenis"							 
 		 	);
 
-
-		
-
 		 
-		 $this->db->where("id_pengepul", $pengepul);
 
 
 		 
 
-		 if(!empty($nama)) {
-		 	$this->db->like("nama",$nama);
+		 if(!empty($sub_jenis)) {
+		 	$this->db->like("sub_jenis",$sub_jenis);
 		 }
 
 		($param['limit'] != null ? $this->db->limit($param['limit']['end'], $param['limit']['start']) : '');
@@ -44,7 +38,7 @@ class pengepul_nasabah_model extends CI_Model {
        
        ($param['sort_by'] != null) ? $this->db->order_by($kolom[$param['sort_by']], $param['sort_direction']) :'';
         
-		$res = $this->db->get('nasabah');
+		$res = $this->db->get('sub_jenis');
 		// echo $this->db->last_query(); exit;
  		return $res;
 	}

@@ -143,6 +143,7 @@ folder instead of downloading all of them to reduce the load. -->
               </a>
               <ul class="treeview-menu">
                 <li><a href="<?php echo site_url('pengepul_add_nasabah'); ?>"><i class="fa fa-circle-o"></i> Nasabah</a></li>
+                <li><a href="<?php echo site_url('pengepul_transaksi'); ?>"><i class="fa fa-circle-o"></i> Tranksaksi</a></li>
                
               </ul>
             </li>

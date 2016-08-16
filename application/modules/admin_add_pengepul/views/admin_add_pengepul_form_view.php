@@ -35,7 +35,7 @@
       <label class="col-sm-3 control-label">Kota </label>
       <div class="col-sm-9">
        
-        <?php echo form_dropdown("id_kota",$arr_kota,'','id="id_kota" class="form-control input-style"'); ?>
+        <?php echo form_dropdown("id_kota",$arr_kota,isset($id_kota)?$id_kota:'','id="id_kota" class="form-control input-style"'); ?>
       </div>
     </div>
     <div class="form-group">

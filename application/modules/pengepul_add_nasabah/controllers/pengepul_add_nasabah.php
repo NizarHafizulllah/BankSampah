@@ -175,14 +175,15 @@ function get_desa(){
         foreach($result as $row) : 
 		// $daft_id = $row['daft_id'];
         $id = $row['id'];
-        $hapus = "<a href ='#' onclick=\"hapus('$id')\" class='btn btn-danger btn-xs'><i class='fa fa-trash'></i>Hapus</a>
-        <a href ='$this->controller/editdata?id=$id' class='btn btn-primary btn-xs'><i class='fa fa-edit'></i>Edit</a>";
+        $hapus = "<a href ='#' onclick=\"hapus('$id')\" class='btn btn-danger btn-xs'><i class='fa fa-trash'></i> Hapus</a>
+        <a href ='pengepul_transaksi/transaction?id=$id' class='btn btn-primary btn-xs'><i class='fa fa-edit'></i> Edit</a>";
         	
         	 
         	$arr_data[] = array(
         		$row['id'],
         		$row['nama'],
-        		$row['no_hp'],      		 
+        		$row['no_hp'],
+                $row['saldo'],      		 
         		$hapus
         		
          			 
@@ -205,35 +206,22 @@ function get_desa(){
     	 $id = $get['id'];
 
     	 $this->db->where('id',$id);
-    	 $biro_jasa = $this->db->get('pengguna');
+    	 $biro_jasa = $this->db->get('nasabah');
     	 $data = $biro_jasa->row_array();
 
-        $data['arr_birojasa'] = $this->cm->arr_dropdown("biro_jasa", "id", "nama", "nama");
+        $data['arr_kota'] = $this->cm->arr_dropdown("tiger_kota", "id", "kota", "kota");
 
 
         $data['action'] = 'update';
          // show_array($data); exit;
     	 
 		
-
-    	// $data_array=array(
-    	// 		'id' => $data->id,
-    	// 		'nama' => $data->nama,
-    	// 		'no_siup' => $data->no_siup,
-    	// 		'no_npwp' => $data->no_npwp,
-    	// 		'no_tdp' => $data->no_tdp,
-    	// 		'telp' => $data->telp,
-    	// 		'alamat' => $data->alamat,
-    	// 		'email' => $data->email,
-    	// 		'hp' => $data->hp,
-
-    	// 	);
-		$content = $this->load->view("sa_birojasa_user_form_edit_view",$data,true);
+		$content = $this->load->view($this->controller."_form_view",$data,true);
 
          // $content = $this->load->view($this->controller."_form_view",$data,true);
 
-		$this->set_subtitle("Edit Biro Jasa");
-		$this->set_title("Edit Biro Jasa");
+		$this->set_subtitle("Edit Nasabah");
+		$this->set_title("Edit Nasabah");
 		$this->set_content($content);
 		$this->cetak();
 

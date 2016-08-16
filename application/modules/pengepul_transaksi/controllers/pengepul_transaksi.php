@@ -28,6 +28,25 @@ class pengepul_transaksi extends pengepul_controller{
     }
 
 
+function transaction(){
+
+        $get = $this->input->get(); 
+         $id = $get['id'];
+         $this->db->where('id',$id);
+         $transaksi = $this->db->get('nasabah');
+         $data_array = $transaksi->row_array(); 
+         // show_array($data_array);
+         // exit();
+         
+
+        
+        $content = $this->load->view("transaksi_view",$data_array,true);
+
+        $this->set_subtitle("Data Transaksi");
+        $this->set_title("Data Transaksi");
+        $this->set_content($content);
+        $this->cetak();
+}
 
 
 
@@ -56,7 +75,7 @@ function baru(){
         $this->db->where('id_pengepul', $pengepul);
         $nasabah = $this->db->get('nasabah');
 
-        $data_array['arr_nasabah'] = $this->cm->arr_dropdown("nasabah", "id", "nama", "nama");
+        $data_array['arr_nasabah'] = $this->cm->arr_dropdown3("nasabah", "id", "nama", "nama", "id_pengepul", $pengepul);
        
         $content = $this->load->view($this->controller."_form_view",$data_array,true);
 
@@ -133,7 +152,15 @@ function simpan(){
         $this->db->where('id', $post['id_nasabah']);
         $subah = $this->db->update('nasabah', $ubah);
 
-       
+        $data2['no_transaksi'] = md5($tgl);
+
+        $data2['kredit'] = $data['harga'];
+        $data2['id_pengepul'] = $post['id_pengepul'];
+        $data2['id_nasabah'] = $post['id_nasabah'];
+        $data2['tgl'] = $tgl;
+        $data2['saldo'] = $ubah['saldo'];
+        $trans = $this->db->insert('m_transaksi', $data2);
+
             }
 
         }
@@ -188,6 +215,7 @@ function get_desa(){
         
   
         $nama = $_REQUEST['columns'][1]['search']['value'];
+        
 
         $userdata = $this->session->userdata('pengepul_login');
         $pengepul = $userdata['id'];
@@ -219,6 +247,7 @@ function get_desa(){
 
        
         $arr_data = array();
+        $no = 1;
         foreach($result as $row) : 
 		// $daft_id = $row['daft_id'];
         $id = $row['id'];
@@ -235,6 +264,7 @@ function get_desa(){
         		$row['saldo_akhir'],
 
         		  				);
+            $no= $no+1;
         endforeach;
 
          $responce = array('draw' => $draw, // ($start==0)?1:$start,
@@ -247,6 +277,78 @@ function get_desa(){
     }
 
     
+
+    function get_transaksi() {
+
+        
+        // show_array($userdata);
+
+        $draw = $_REQUEST['draw']; // get the requested page 
+        $start = $_REQUEST['start'];
+        $limit = $_REQUEST['length']; // get how many rows we want to have into the grid 
+        $sidx = isset($_REQUEST['order'][0]['column'])?$_REQUEST['order'][0]['column']:0; // get index row - i.e. user click to sort 
+        $sord = isset($_REQUEST['order'][0]['dir'])?$_REQUEST['order'][0]['dir']:"asc"; // get the direction if(!$sidx) $sidx =1;  
+        
+  
+        $nama = $_REQUEST['columns'][1]['search']['value'];
+        $id_nasabah = $_REQUEST['columns'][2]['search']['value'];
+        $get = $this->input->get(); 
+         
+
+
+      //  order[0][column]
+        $req_param = array (
+                "sort_by" => $sidx,
+                "sort_direction" => $sord,
+                "limit" => null,
+                "nama" => $nama,
+                "id_nasabah" => $id_nasabah
+                 
+        );     
+           
+        $row = $this->dm->transaksi($req_param)->result_array();
+        
+        $count = count($row); 
+       
+        
+        $req_param['limit'] = array(
+                    'start' => $start,
+                    'end' => $limit
+        );
+          
+        
+        $result = $this->dm->transaksi($req_param)->result_array();
+        
+
+       
+        $arr_data = array();
+        
+        foreach($result as $row) : 
+        // $daft_id = $row['daft_id'];
+        $id = $row['id'];
+         // echo $this->db->last_query(); exit();
+        
+            
+             
+            $arr_data[] = array(
+                $row['tgl'],
+                $row['no_transaksi'],
+                $row['debit'],
+                $row['kredit'],
+                $row['saldo'],
+
+                                );
+            
+        endforeach;
+
+         $responce = array('draw' => $draw, // ($start==0)?1:$start,
+                          'recordsTotal' => $count, 
+                          'recordsFiltered' => $count,
+                          'data'=>$arr_data
+            );
+         
+        echo json_encode($responce); 
+    }
 
     function editdata(){
     	 $get = $this->input->get(); 

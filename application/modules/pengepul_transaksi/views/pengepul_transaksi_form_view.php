@@ -3,6 +3,8 @@
   $userdata = $this->session->userdata('pengepul_login');
 ?>
       <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+      <link href="<?php echo base_url("assets") ?>/plugins/select2/select2.min.css" rel="stylesheet" >
+      <script src="<?php echo base_url("assets") ?>/plugins/select2/select2.full.min.js"></script>
 
       <link href="<?php echo base_url("assets") ?>/css/datepicker.css" rel="stylesheet">
     <script src="<?php echo base_url("assets") ?>/js/bootstrap-datepicker.js"></script> 
@@ -36,7 +38,7 @@
       <label class="col-sm-3 control-label">Nasabah
                       </label>
       <div class="col-sm-9">
-        <?php echo form_dropdown("id_nasabah",$arr_nasabah,'','id="id_nasabah" class="form-control input-style"'); ?>
+        <?php echo form_dropdown("id_nasabah",$arr_nasabah,'','id="id_nasabah" class="select2 form-control"'); ?>
       </div>
     </div>
     

@@ -142,11 +142,20 @@ folder instead of downloading all of them to reduce the load. -->
             </li>
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-edit"></i> <span>Data Master</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-user"></i> <span>User</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
                 <li><a href="<?php echo site_url('admin_add_pengepul'); ?>"><i class="fa fa-circle-o"></i> Pengepul</a></li>
-                 <li><a href="<?php echo site_url('nasabah'); ?>"><i class="fa fa-circle-o"></i> Nasabah</a></li>
+                 
+              </ul>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-edit"></i> <span>Data Master</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="<?php echo site_url('m_jenis'); ?>"><i class="fa fa-circle-o"></i> Jenis</a></li>
+                 <li><a href="<?php echo site_url('m_sub_jenis'); ?>"><i class="fa fa-circle-o"></i> Sub Jenis</a></li>
               </ul>
             </li>
           </ul>

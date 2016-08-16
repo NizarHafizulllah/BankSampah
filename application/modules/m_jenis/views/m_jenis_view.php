@@ -12,9 +12,9 @@
           <!-- Default box -->
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Data Nasabah </h3>
+              <h3 class="box-title">Data Jenis </h3>
               <div class="box-tools pull-right">
-              <a href="<?php echo site_url("$this->controller/baru"); ?>"><button type="button" class="btn btn-primary form-control"><i class="fa fa fa-plus-circle "></i> Tambah Nasabah</button></a>
+              <a href="<?php echo site_url("$this->controller/baru"); ?>"><button type="button" class="btn btn-primary form-control"><i class="fa fa fa-plus-circle "></i> Tambah Jenis</button></a>
               </div>
             </div>
             <div class="box-body">
@@ -26,8 +26,8 @@
             <form role="form" action="" id="btn-cari" >
             <div class="col-md-3">
               <div class="form-group">
-                <label for="nama">Nama</label>
-                <input id="nama" name="nama" type="text" class="form-control" placeholder="Nama"></input>
+                <label for="jenis">Jenis</label>
+                <input id="jenis" name="jenis" type="text" class="form-control" placeholder="Jenis"></input>
               </div>
             </div>
             <div class="col-md-1">
@@ -46,7 +46,7 @@
   </div>          
 <div class="row">
 <div class="table-responsive">
-<table width="100%" border="0" id="biro_jasa" class="table table-striped 
+<table width="100%" border="0" id="f_jenis" class="table table-striped 
              table-bordered table-hover dataTable no-footer" role="grid">
 <thead>
   <tr>
@@ -54,10 +54,8 @@
 
         
         <th width="7%">ID</th>
-        <th width="23%">Nama</th>
-        <th width="10%">Hp</th>
-        <th width="20%">Saldo</th>
-        <th width="14%">#</th>
+        <th width="7%">Jenis</th>
+        <th width="23%">#</th>
     </tr>
   
 </thead>
@@ -70,5 +68,5 @@
 
 
 <?php 
-$this->load->view($this->controller."_view_js");
+$this->load->view("m_jenis_view_js");
 ?>

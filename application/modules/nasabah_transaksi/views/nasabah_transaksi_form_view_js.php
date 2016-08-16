@@ -2,12 +2,6 @@
 
 $(document).ready(function(){
 
-$(".select2").select2();
-
-$(".tanggal").datepicker().on('changeDate', function(ev){
-                             
-             $('.tanggal').datepicker('hide');
-        });
 
 $('#form_data').bootstrapValidator({
                 message: 'This value is not valid', 
@@ -17,37 +11,20 @@ $('#form_data').bootstrapValidator({
                     validating: 'glyphicon glyphicon-refresh'
                 },
                 fields: {
-                    nama: {
+                    nominal: {
                         validators: {
                             notEmpty: {
-                                message : 'Nama tidak boleh kosong' 
+                                message : 'Masukkan Jumlah Uang Yang Ingin Diambil' 
                             }
                         }
                     },
-
-                    alamat: {
+                    jenis_kirim: {
                         validators: {
                             notEmpty: {
-                                message : 'Alamat tidak boleh kosong' 
+                                message : 'Masukkan Jenis Pengiriman Uang' 
                             }
                         }
                     },
-                  
-
-                    no_hp: {
-                        validators: {
-                            notEmpty: {
-                                message : 'No Hp Tidak Boleh Kosong'    
-                            },
-                            remote: {
-                                type: 'POST',
-                                url: "<?php echo site_url('pengepul_add_nasabah/cekEmail'); ?>",
-                                message: 'Pengepul dengan No Hp Ini Sudah Terdaftar',
-                                delay: 200
-                            }
-                        }
-                    } 
-
                     
                 }
                 
@@ -59,35 +36,9 @@ $('#form_data').bootstrapValidator({
             $('#form_data').data('bootstrapValidator').resetForm(true);
         });
 
-  $("#id_kota").change(function(){
 
-    $.ajax({
 
-            url : '<?php echo site_url("$this->controller/get_kecamatan") ?>',
-            data : { id_kota : $(this).val() },
-            type : 'post', 
-            success : function(result) {
-                $("#id_kecamatan").html(result)
-            }
-      });
-
-    });
-
-   $("#id_kecamatan").change(function(){
-
-    $.ajax({
-
-            url : '<?php echo site_url("$this->controller/get_desa") ?>',
-            data : { id_kecamatan : $(this).val() },
-            type : 'post', 
-            success : function(result) {
-                $("#id_desa").html(result)
-            }
-      });
-
-    });
-
-$("#tombolsubmitsimpan").click(function(){
+$("#simpan").click(function(){
  console.log('tests');
 
     $.ajax({
@@ -126,10 +77,10 @@ $("#tombolsubmitsimpan").click(function(){
 
 
 
-$("#tombolsubmitupdate").click(function(){ 
+$("#update").click(function(){ 
     $.ajax({
         url:'<?php echo site_url("$this->controller/update"); ?>',
-        data : $('#form_edit').serialize(),
+        data : $('#form_data').serialize(),
         type : 'post',
         dataType : 'json',
         success : function(obj){
@@ -160,23 +111,6 @@ $("#tombolsubmitupdate").click(function(){
 
     return false;
 });
-
-  $("#id_polda").change(function(){
-
-    $.ajax({
-
-            url : '<?php echo site_url("$this->controller/get_samsat") ?>',
-            data : { id_polda : $(this).val() },
-            type : 'post', 
-            success : function(result) {
-                $("#id_samsat").html(result)
-            }
-      });
-
-    });
-
-
-
 
 
 

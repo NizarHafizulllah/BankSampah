@@ -1,8 +1,9 @@
 
- <link href="<?php echo base_url("assets") ?>/css/datepicker.css" rel="stylesheet">
 <script src="<?php echo base_url("assets") ?>/js/bootstrap-datepicker.js"></script>
 <script src="<?php echo base_url("assets") ?>/js/jquery.dataTables.min.js"></script>
 
+<?php $userdata = $this->session->userdata('nasabah_login');
+         ?>
  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/jquery.dataTables.min.css">
 
 
@@ -12,13 +13,30 @@
           <!-- Default box -->
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Data Nasabah </h3>
+              <h3 class="box-title">Data Transaksi </h3>
               <div class="box-tools pull-right">
-              <a href="<?php echo site_url("$this->controller/baru"); ?>"><button type="button" class="btn btn-primary form-control"><i class="fa fa fa-plus-circle "></i> Tambah Nasabah</button></a>
+              <a href="<?php echo site_url("$this->controller/baru"); ?>"><button type="button" class="btn btn-primary form-control"><i class="fa fa fa-plus-circle "></i> Ambil Uang</button></a>
               </div>
             </div>
             <div class="box-body">
+<div style="font-family: arial; font-size: 25px">
+<div class="row">
+  <div class="col-md-2">No. Nasabah</div>
+  <div class="col-md-5">: <?php echo $userdata['id'] ?></div>
+</div>
+<div class="row">
+  <div class="col-md-2">Nama</div>
+  <div class="col-md-5">: <?php echo $userdata['nama'] ?></div>
+</div>
+<div class="row">
+  <div class="col-md-2">Saldo</div>
+  <div class="col-md-3">: <?php echo $userdata['saldo'] ?></div>
+</div>
+</div>
 
+<br/>
+<hr/>
+<br/>
 
 <div class="row">
             
@@ -26,8 +44,9 @@
             <form role="form" action="" id="btn-cari" >
             <div class="col-md-3">
               <div class="form-group">
-                <label for="nama">Nama</label>
+                <label for="nama">No. Transaksi</label>
                 <input id="nama" name="nama" type="text" class="form-control" placeholder="Nama"></input>
+                
               </div>
             </div>
             <div class="col-md-1">
@@ -51,13 +70,11 @@
 <thead>
   <tr>
 
-
-        
-        <th width="7%">ID</th>
-        <th width="23%">Nama</th>
-        <th width="10%">Hp</th>
-        <th width="20%">Saldo</th>
-        <th width="14%">#</th>
+        <th width="15%">Tanggal</th>
+        <th width="18%">No.</th>
+        <th width="14%">Debit</th>
+        <th width="14%">Kredit</th>
+        <th width="20%">Saldo </th>
     </tr>
   
 </thead>
@@ -70,5 +87,5 @@
 
 
 <?php 
-$this->load->view($this->controller."_view_js");
+$this->load->view("nasabah_transaksi_view_js");
 ?>
